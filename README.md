@@ -41,12 +41,12 @@ You can access this page by cloning the repository and visiting it in your brows
 Test that changes to your page work by calling it either with:
 
 ```
-?slug=abcd1234
+index.html?slug=abcd1234
 ```
 
 or the confirmation side
 
 ```
-?confirm=1
+index.html?confirm=1
 ```
 
