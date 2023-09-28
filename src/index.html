@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body onLoad="loadHandler()">
+<p>Thanks for opting out</p>
+</body>
+</html>
+<noscript>Your browser does not support JavaScript! To opt-out please follow original tracked link again having appended "&confirm=1" to the url then close this window.</noscript>
+<script>
+    var slug;
+
+    function loadHandler()
+    {
+        // Called when the page loads
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const confirm = urlParams.get('confirm');
+        slug = urlParams.get('slug');
+
+        if(confirm != "1")
+        {
+            // Your page should have slug but not confirm=1
+            // This means user has just followed the link to the page
+            document.body.innerHTML = "<p>Click to confirm opt-out.</p><button onclick=\"clickHandler()\">Confirm Opt Out</button>";
+        }
+        else
+        {
+            // Having confirm=1 in GET string means that user has pressed the
+            // confirm button and a round trip has been made back to the opt out 
+            // service (which then redirected us back here).
+            document.body.innerHTML = "<p>You are now opted out.</p>";
+        }
+    }
+
+    function clickHandler()
+    {
+        // Called when the user clicks the opt out button
+
+        // navigate back to the opt out service with confirm=1 for the users slug
+        const optOutService = 'https://optouttxt.net/';
+        window.location.href = optOutService + slug + '?confirm=1';
+
+        // navigating to this url will redirect back to your page with 
+        // confirm=1 to let you know it was successful.
+    }
+</script>
