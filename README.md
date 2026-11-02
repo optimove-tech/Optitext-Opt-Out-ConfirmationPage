@@ -7,7 +7,7 @@ This repository contains an example opt out page for use with Optimove opt out l
 Opt out links are hyperlinks that redirect to a page allowing opt out. Each opt out link contains a user specific 'slug' (e.g. abcd1234). For example:
 
 ```
-https://optouttxt.net/abcd1234
+https://ot.gt/abcd1234
 ```
 _Example opt out link, in this case the user slug is abcd1234_
 
@@ -20,7 +20,7 @@ https://optitext-opt-out.optimove.net/index.html?slug=abcd1234
 Upon the user confirming the desire to opt out - a round trip must be made back to the lookup service including both the path slug and the query string variable `confirm=1`.  For example:
 
 ```
-https://optouttxt.net/abcd1234?confirm=1
+https://ot.gt/abcd1234?confirm=1
 ```
 _Example opt out link confirmed_
 
